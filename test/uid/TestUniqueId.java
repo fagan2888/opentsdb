@@ -51,7 +51,7 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyMapOf;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.anyInt;
-import static org.mockito.Mockito.argThat;
+import static org.mockito.hamcrest.MockitoHamcrest.argThat;
 import static org.mockito.Mockito.eq;
 import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.never;

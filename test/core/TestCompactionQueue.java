@@ -42,7 +42,7 @@ import org.mockito.ArgumentMatcher;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
-import static org.mockito.Matchers.argThat;
+import static org.mockito.hamcrest.MockitoHamcrest.argThat;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.never;
@@ -1551,7 +1551,7 @@ public final class TestCompactionQueue {
     return argThat(new EqAnyOrder(wanted));
   }
 
-  private static class EqAnyOrder extends ArgumentMatcher<byte[][]> {
+  private static class EqAnyOrder implements ArgumentMatcher<byte[][]> {
 
     private final Set<byte[]> wanted;
 
@@ -1559,10 +1559,11 @@ public final class TestCompactionQueue {
       this.wanted = new HashSet<byte[]>(Arrays.asList(wanted));
     }
 
-    @Override public boolean matches(Object o) {
-      if (o.getClass() != byte[][].class) {
-        return false;
-      }
+    public String toString() {
+      return "contains some arguments";
+    }
+
+    @Override public boolean matches(byte[][] obytes) {
       byte[][] obytes = (byte[][]) o;
       if (obytes.length != wanted.size()) {
         return false;

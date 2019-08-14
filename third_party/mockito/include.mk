@@ -13,7 +13,7 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
-MOCKITO_VERSION := 1.9.5
+MOCKITO_VERSION := 2.28.2
 MOCKITO := third_party/mockito/mockito-core-$(MOCKITO_VERSION).jar
 MOCKITO_BASE_URL := http://central.maven.org/maven2/org/mockito/mockito-core/$(MOCKITO_VERSION)
 
